@@ -22,7 +22,7 @@ class UkladRownanLiniowych {
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */
 
-   istream &  operator << (istream wejscie, UkladRownan Uklad);
+   istream &  operator << (istream & wejscie, UkladRownan Uklad);
 };
 
 
@@ -33,7 +33,7 @@ class UkladRownanLiniowych {
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt
  */
-istream& operator >> (istream &Strm, UkladRownanLiniowych &UklRown);
+istream& operator >> (istream & wejscie, UkladRownanLiniowych &Uklad);
 
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format
@@ -42,7 +42,7 @@ istream& operator >> (istream &Strm, UkladRownanLiniowych &UklRown);
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt
  */
-ostream& operator << ( ostream &Strm, const UkladRownanLiniowych    &UklRown );
+ostream& operator << ( ostream & wyjscie, const UkladRownanLiniowych    &Uklad);
 
 
 #endif

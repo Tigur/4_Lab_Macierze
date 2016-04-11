@@ -33,7 +33,7 @@ int main()
 	  {
 		  UklRown.M.Zjedynkuj(UklRown.M);
 		  UklRown.M.Wyzerujprawo(UklRown.M);
-		  UklRown.M.Laplace(UklRown.M);
+		  UklRown.M.Laplace(UklRown.M); //!!
 		  UklRown.M.i++;
 
 	  }
