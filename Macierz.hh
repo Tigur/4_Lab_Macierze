@@ -1,6 +1,7 @@
 #ifndef MACIERZ_HH
 #define MACIERZ_HH
 
+#include <cstdlib>
 #include "rozmiar.h"
 #include <iostream>
 
