@@ -1,4 +1,6 @@
+
 #include "Wektor.h"
+#include "rozmiar.h"
 using namespace std;
 
 /*
