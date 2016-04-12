@@ -1,7 +1,7 @@
 #ifndef MACIERZ_HH
 #define MACIERZ_HH
 
-
+#include "Wektor.h"
 #include "rozmiar.h"
 #include <iostream>
 
@@ -16,14 +16,14 @@ class Macierz {
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
 
-
+public:
 	Wektor Kolumna[ROZMIAR];
     const Wektor & operator[] (int Kol) const { return Kolumna[Kol]; }
     Wektor & operator[] (int Kol) { return Kolumna[Kol]; }
     const float operator() (int Wi, int Ko) const {return Kolumna[Ko][Wi];}
     float& operator() (int Wi, int Ko) {return Kolumna[Ko][Wi];}
 
-  public:
+
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */
@@ -50,7 +50,7 @@ class Macierz {
 
     	return M;
     }
-    float & LiczWyzn(Macierz M, float w)
+    float & LiczWyzn(Macierz M, float & w)
     {
     	w=(M(i,i)*M(i+1,i+1))-(M(i,i+1)*M(i+1,i));
 

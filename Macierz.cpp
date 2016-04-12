@@ -27,7 +27,9 @@ std::ostream& operator << (std::ostream &wyjscie, const Macierz &Mac)
      return wyjscie;
 
 }
+/*
 int main ()
 {
 
 }
+*/

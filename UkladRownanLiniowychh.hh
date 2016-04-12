@@ -2,6 +2,8 @@
 #define UKLADROWNANLINIOWYCH_HH
 
 #include <iostream>
+#include "Macierz.hh"
+
 using namespace std;
 
 /*
@@ -12,17 +14,17 @@ class UkladRownanLiniowych {
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
-
+public:
     Macierz M;
     Wektor b;
     Wektor X;
 
-  public:
+
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */
 
-   istream &  operator << (istream & wejscie, UkladRownan Uklad);
+   //istream &  operator << (istream & wejscie, UkladRownanLiniowych Uklad);
 };
 
 
