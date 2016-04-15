@@ -10,7 +10,7 @@ using namespace std;
  *  Mniejsze metody mozna definiwac w ciele klasy.
  */
 
-float Wektor::IloczynSkal( const Wektor& V2 ) const
+float  Wektor::IloczynSkal( const Wektor& V2 ) const
 {
 
   float Wynik = 0;
@@ -41,7 +41,7 @@ ostream & operator << (ostream & wyjscie, const Wektor & W)
 
 }
 
-Wektor operator * ( const Wektor & V1, const float d)
+Wektor  operator * ( const Wektor & V1, const float d)
 
 
 

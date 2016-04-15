@@ -25,8 +25,8 @@ class Wektor {
   float operator[]  (int Ind) const { return Wsp[Ind]; }
   float & operator[]  (int Ind) { return Wsp[Ind]; }
   float operator & (const Wektor& V2) const;
-  float IloczynSkal( const Wektor& V2 ) const;
-
+  float  IloczynSkal( const Wektor& V2 ) const;
+ // float  operator * ( const Wektor & V1, const Wektor & V2) {return V1.IloczynSkal(V2);}
 
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
@@ -55,10 +55,10 @@ std::istream & operator >> (std::istream & wejscie, Wektor & W);
 std::ostream & operator << (std::ostream & wyjscie, const Wektor & W);
 
 
-float operator * ( const Wektor & V1, const Wektor & V2) {return V1.IloczynSkal(V2);}
+inline float  operator * ( const Wektor & V1, const Wektor & V2) {return V1.IloczynSkal(V2);}
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-Wektor operator * ( const Wektor & V1, const float d);
+Wektor  operator * ( const Wektor & V1, const float d);
 
 
 Wektor operator + (const Wektor & V1, const Wektor & V2);

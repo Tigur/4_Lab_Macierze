@@ -1,10 +1,11 @@
 #ifndef MACIERZ_HH
 #define MACIERZ_HH
 
+#include<cstdlib>
 #include "Wektor.h"
 #include "rozmiar.h"
 #include <iostream>
-
+using namespace std;
 
 
 /*
@@ -32,9 +33,28 @@ public:
 
     Macierz & Zjedynkuj (Macierz & M)
     {
-    	M[i]= M[i]/M(i,i);
+    	if ( M(i,i)!=0)
+    	{
+			M[i]= M[i]/M(i,i);
 
-    	return M;
+			return M;
+    	}
+    	else
+    	{
+    		M[i]=M[i]+M[i+1]+M[i+2];
+    		if(M(i,i)==0)
+    		{
+    			cerr << "uklad sprzeczny lub ma nieskonczenie wiele rozwiazan"<< endl;
+    			abort();
+
+    			return M;
+    		}
+    		else
+    		{
+    			M[i]= M[i]/M(i,i);
+
+    		}
+    	}
     }
 
     Macierz &  Wyzerujprawo (Macierz & M)
@@ -52,8 +72,15 @@ public:
     }
     float & LiczWyzn(Macierz M, float & w)
     {
+    	int a=1; // pozycjoner wsteczny dopelnien
+
     	w=(M(i,i)*M(i+1,i+1))-(M(i,i+1)*M(i+1,i));
 
+    	while ((i-a)>=0) // mnozenie przez dopełnienie.
+    	{
+    	w=M(i-a,i-a)*w;
+    	a++;
+    	}
     	return w;
     }
 };
