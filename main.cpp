@@ -1,9 +1,9 @@
 #include <iostream>
-/*
+
 #include "Wektor.h"
 #include "Macierz.hh"
-*/
-#include "UkladRownanLiniowychh.hh"
+
+#include "UkladRownanLiniowych.hh"
 
 
 
@@ -21,8 +21,8 @@ int main()
 {
   UkladRownanLiniowych   UklRown; // To tylko przykladowe definicje zmiennej
   Macierz Mp; // macierz pomocnicza
-  float w[ROZMIAR+1]; // tablica wyznacznikow
-  int iter=0;
+  float Wyz[ROZMIAR+1]; // tablica wyznacznikow
+  int numer=0;
   
   cout << endl << " Start programu " << endl << endl;
 
@@ -31,43 +31,30 @@ int main()
   Mp= UklRown.M;
   cout<< "licze wyznaczniki ..."<< endl;
 
-  for( iter=0;iter<ROZMIAR+1;iter++)
-  {
-	  while((UklRown.M.i)!=(ROZMIAR-2))
-	  {
-		  UklRown.M.Zjedynkuj(UklRown.M);
+  for( numer=0;numer<=ROZMIAR;numer++) // wszystko na macierzy pomocniczej, Czy dobrze ?
+    {
+	  cout << "poczatek petli:\n"<< endl;
+	  Mp.WypiszMacierz();
 
-		  cout << "zjedynkowano"<< endl;
+     MacierzoweSzarady(Mp,Wyz[numer]);
+     Mp=UklRown.M;
+     cout << "wstawiam wektor wolny" << endl;
+     WstawWolny(Mp,UklRown.b,numer);
 
-		  UklRown.M.Wyzerujprawo(UklRown.M);
+    }
+  
 
-		  cout<< "wyzerowano prawo"<< endl;
-
-		  UklRown.M.Laplace(UklRown.M); //!!
-
-		  cout<< "byl laplace" << endl;
-		  cout<< "M.i = "<< UklRown.M.i<< endl;
-		 // UklRown.M.i++; // iterator skosny laplasowy
-
-	  }
-
-		  UklRown.M.LiczWyzn(UklRown.M,w[iter]);
-		  UklRown.M.i=0; // zeruje iterator La place'owania
-		  cout << "jeden z wyznaczników policzony !\n"<< endl;
-		  Mp.i=UklRown.M.i; // ?
-		  UklRown.M=Mp; // resetuje macierz
-		  UklRown.M[iter]=UklRown.b; // podmieniam kolumny
-  }
-  UklRown.X[0]=w[1]/w[0];
-  UklRown.X[1]=w[2]/w[0];
-  UklRown.X[2]=w[3]/w[0];
-
+  LiczenieNiewiadomych(UklRown.X,Wyz);
 
 
   cout<< "x1 = "<< UklRown.X[0] << endl;
   cout<< "x2 = "<< UklRown.X[1]<< endl;
   cout<< "x3 = "<< UklRown.X[2]<< endl;
-
-  cout<<"\n\n "<< UklRown.M.i<< "\n";
-  // WYpisywanie *********
+  cout << "Wypisuje wyznaczniki:"<< endl;
+  for (int i=0;i<=ROZMIAR;i++)
+  {
+	  cout << Wyz[i]<< endl;
+  }
+  
+  // Wypisywanie *********
 }

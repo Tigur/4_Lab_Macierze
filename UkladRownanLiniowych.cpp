@@ -1,5 +1,5 @@
 #include <iostream>
-#include "UkladRownanLiniowychh.hh"
+#include "UkladRownanLiniowych.hh"
 #include "Macierz.hh"
 
 using namespace std;
